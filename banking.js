@@ -1,11 +1,34 @@
-// handel deposit buttons
-document.getElementById('deposit-button').addEventListener('click', function () {
+
+/* function doubleIt(num) {
+    const result = num * 2;
+    return result;
+}
+const first = doubleIt(5);
+const first = doubleIt(7); */
+
+function getInputValu() {
     const depositInput = document.getElementById('deposit-input');
     const NewdepositAmounttext = depositInput.value;
     const NewdepositAmount = parseFloat(NewdepositAmounttext);
-    // console.log(depositAmopunt);
+    // clear the depiosite input fileds
+    depositInput.value = '';
+    return NewdepositAmount;
+}
 
 
+
+
+
+
+
+// handel deposit buttons
+document.getElementById('deposit-button').addEventListener('click', function () {
+    /* const depositInput = document.getElementById('deposit-input');
+    const NewdepositAmounttext = depositInput.value;
+    const NewdepositAmount = parseFloat(NewdepositAmounttext); */
+    const NewdepositAmount = getInputValu();
+
+    // get Current deposite
     const depositTotal = document.getElementById('deposit-total');
     const previousDeposittext = depositTotal.innerText;
     const previousDepositAmount = parseFloat(previousDeposittext);
@@ -13,16 +36,15 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     const newDepositeTotal = previousDepositAmount + NewdepositAmount;
     depositTotal.innerText = newDepositeTotal;
 
-    // update Account balace
+    // update Account balance
     const totalBalance = document.getElementById('total-balance');
     const totalBalancetext = totalBalance.innerText;
     const previousTotalBalance = parseFloat(totalBalancetext);
     const newTotalBalance = previousTotalBalance + NewdepositAmount;
     totalBalance.innerText = newTotalBalance;
 
-    // clear the depiosite input fileds 
-    depositInput.value = '';
-})
+
+});
 // handel withdraw buttons
 document.getElementById('withdraw-button').addEventListener('click', function () {
     const withdrawInput = document.getElementById('withdraw-input');
@@ -38,7 +60,7 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     const newWithdrawTotal = previousWithdrawAmount + NewWithdrawAmount;
     withdrawTotal.innerText = newWithdrawTotal;
 
-    // update Account balace
+    // update Account balance
     const totalBalance = document.getElementById('total-balance');
     const totalBalancetext = totalBalance.innerText;
     const previousTotalBalance = parseFloat(totalBalancetext);
@@ -47,4 +69,4 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
 
     // clear the depiosite input fileds
     withdrawInput.value = '';
-})
+});
